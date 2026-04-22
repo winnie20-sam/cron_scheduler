@@ -104,11 +104,15 @@ jobs:
         run: |
           docker build \
             -t ${{ steps.meta.outputs.image_name }}:${{ steps.meta.outputs.image_tag }} \
-            -t ${{ steps.meta.outputs.image_name }}:latest \
+            -t ${{ secrets.DOCKER_HUB_USERNAME }}/laravel-app:latest \
             .
 
       - name: Save image to cache
-        run: docker save ${{ steps.meta.outputs.image_name }}:${{ steps.meta.outputs.image_tag }} | gzip > image.tar.gz
+        run: |
+          docker save \
+            ${{ steps.meta.outputs.image_name }}:${{ steps.meta.outputs.image_tag }} \
+            ${{ secrets.DOCKER_HUB_USERNAME }}/laravel-app:latest \
+            | gzip > image.tar.gz
 
       - name: Upload image artifact
         uses: actions/upload-artifact@v4
