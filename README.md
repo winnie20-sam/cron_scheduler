@@ -16,12 +16,8 @@ that tracks the status of critical scheduled financial operations.
 2. Copy the environment file
    cp .env.example .env
 
-3. Add these values to your .env file
-   APP_KEY=base64:kTzGxHv2mNqP8wRdYjLcF5sUeA1oI9bE3nW6yX0=
-   DB_DATABASE=health_check
-   DB_USERNAME=health_check
-   DB_PASSWORD=Str0ngP@ssword123!
-   DB_ROOT_PASSWORD=rootpassword
+3. 3. Copy the environment file and fill in your own values
+   cp .env.example .env
 
 4. Start the containers
    docker compose up -d --build
