@@ -163,7 +163,7 @@ jobs:
         run: echo "Deployment approved for ${{ needs.build.outputs.image_name }}:${{ needs.build.outputs.image_tag }}"
 
   # ─────────────────────────────────────────────────────────────
-  # STAGE 5 — Deploy to production (runs only after approval)
+  # STAGE 5 — Deploy to production
   # ─────────────────────────────────────────────────────────────
   deploy:
     name: Deploy to Production
