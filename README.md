@@ -16,7 +16,7 @@ that tracks the status of critical scheduled financial operations.
 2. Copy the environment file
    cp .env.example .env
 
-3. 3. Copy the environment file and fill in your own values
+3. Copy the environment file and fill in your own values
    cp .env.example .env
 
 4. Start the containers
