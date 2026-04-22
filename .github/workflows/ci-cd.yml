@@ -11,7 +11,7 @@ on:
 # ─────────────────────────────────────────────────────────────
 jobs:
   lint-and-test:
-    name: 🧪 Lint & Test
+    name:  Lint & Test
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
 
@@ -121,7 +121,7 @@ jobs:
   # STAGE 3 — Push to Docker Hub
   # ─────────────────────────────────────────────────────────────
   push:
-    name: 📦 Push to Docker Hub
+    name: Push to Docker Hub
     runs-on: ubuntu-latest
     needs: build
 
@@ -142,14 +142,14 @@ jobs:
 
       - name: Push image to Docker Hub
         run: |
-          docker push ${{ needs.build.outputs.image_name }}:${{ needs.build.outputs.image_tag }}
-          docker push ${{ needs.build.outputs.image_name }}:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/laravel-app:${{ needs.build.outputs.image_tag }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/laravel-app:latest
 
   # ─────────────────────────────────────────────────────────────
   # STAGE 4 — Manual Approval Gate before production deploy
   # ─────────────────────────────────────────────────────────────
   approve:
-    name: 🔐 Awaiting Approval
+    name:  Awaiting Approval
     runs-on: ubuntu-latest
     needs: push
     environment: production
@@ -162,7 +162,7 @@ jobs:
   # STAGE 5 — Deploy to production (runs only after approval)
   # ─────────────────────────────────────────────────────────────
   deploy:
-    name: 🚀 Deploy to Production
+    name:  Deploy to Production
     runs-on: ubuntu-latest
     needs: [approve, build]
 
