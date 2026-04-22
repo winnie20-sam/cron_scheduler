@@ -97,8 +97,13 @@ Only the load balancer sits in the public subnet.
 ---
 
 ## One Thing I Would Improve With More Time
+I would add an automated rollback mechanism to the deploy stage. 
+Currently if a deployment fails for any reason the app could be 
+left in a broken state until someone manually intervenes. I would implement an automatic rollback that detects any failure 
+after deployment and immediately restarts the last known working 
+image tag
 
-I would add automatic database migrations to the deploy stage so that
-php artisan migrate runs automatically on every production deployment
-without needing manual intervention. This would make the pipeline fully
-hands-free after the approval gate is cleared.
+The rollback would also trigger an automated alert to the 
+team via Slack or email so the failure does not go unnoticed 
+while the app continues running on the previous stable version.
+
