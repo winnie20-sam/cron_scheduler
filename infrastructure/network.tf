@@ -1,5 +1,5 @@
 # ─────────────────────────────────────────────
-# VPC — your private cloud network
+# VPC
 # ─────────────────────────────────────────────
 resource "aws_vpc" "main" {
   cidr_block           = "10.0.0.0/16"
@@ -10,7 +10,7 @@ resource "aws_vpc" "main" {
 }
 
 # ─────────────────────────────────────────────
-# Public Subnets — for Load Balancer
+# Public Subnets
 # ─────────────────────────────────────────────
 resource "aws_subnet" "public_a" {
   vpc_id                  = aws_vpc.main.id
@@ -31,7 +31,7 @@ resource "aws_subnet" "public_b" {
 }
 
 # ─────────────────────────────────────────────
-# Private Subnets — for ECS containers and RDS
+# Private Subnets(for ECS containers and RDS)
 # ─────────────────────────────────────────────
 resource "aws_subnet" "private_a" {
   vpc_id            = aws_vpc.main.id
@@ -50,7 +50,7 @@ resource "aws_subnet" "private_b" {
 }
 
 # ─────────────────────────────────────────────
-# Internet Gateway — allows public subnet to reach internet
+# Internet Gateway
 # ─────────────────────────────────────────────
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id

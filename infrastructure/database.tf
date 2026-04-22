@@ -50,7 +50,7 @@ resource "aws_db_instance" "main" {
 
   skip_final_snapshot     = false
   final_snapshot_identifier = "${var.app_name}-final-snapshot"
-  publicly_accessible     = false   # never exposed to internet
+  publicly_accessible     = false
 
   tags = { Name = "${var.app_name}-db" }
 }

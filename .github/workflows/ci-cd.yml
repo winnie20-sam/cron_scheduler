@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 # ─────────────────────────────────────────────────────────────
-# STAGE 1 — Lint & Test  (triggers on every Pull Request)
+# STAGE 1 — Lint & Test
 # ─────────────────────────────────────────────────────────────
 jobs:
   lint-and-test:
